@@ -3,3 +3,23 @@ alias ll="ls -l"
 alias la="ls -a"
 alias lla="ls -al"
 alias cap="cap -f ~topdog/Capfile"
+
+pydir () {
+    python -c "import $1,os; print os.path.dirname($1.__file__)"
+}
+
+pycd ()  {
+    cd `pydir $1`
+}
+
+pymod() {
+    python -c "import $1; print $1.__file__.replace('.pyc', '.py')"
+}
+
+pyvim() {
+    vim `pymod $1`
+}
+
+pyver() {
+    pip show $1|egrep ^Version
+}
