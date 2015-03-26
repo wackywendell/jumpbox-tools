@@ -9,6 +9,8 @@ COMPLETION_WAITING_DOTS="true"
 plugins=(git python screen z zsh-syntax-highlighting)
 
 source /etc/profile
+fpath=(~/.jumpbox-tools/zsh/completion $fpath)
+
 source ~/.jumpbox-tools/zsh/aliases
 source ~/.jumpbox-tools/zsh/helpers
 source $ZSH/oh-my-zsh.sh
