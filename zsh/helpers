@@ -62,14 +62,6 @@ howold ()
     printf " ago.\n"
 }
 
-sudog () {
-    sudo -u dog $@
-}
-
-sudogq () {
-    sudo -u dog dogq $@
-}
-
 mq () {
     sudogq metric_query $@
 }
