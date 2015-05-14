@@ -1,12 +1,12 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
-ZSH_THEME="jumpbox"
+ZSH_THEME="muse"
 DISABLE_AUTO_UPDATE="true"
 COMPLETION_WAITING_DOTS="true"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
-plugins=(git tmux)
+plugins=(git python screen z zsh-syntax-highlighting)
 
 source /etc/profile
 source ~/.jumpbox-tools/zsh/aliases
