@@ -7,3 +7,5 @@ fi
 PATH=~/.bin:$PATH
 
 EDITOR=nano
+
+KNIFE_HOME=/etc/chef
