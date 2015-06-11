@@ -1,4 +1,4 @@
-# YOu shouldn't run the line below before reading those files:
+# You shouldn't run the line below before reading those files:
 
 - bootstrap.sh
 - installs.sh
@@ -10,3 +10,4 @@ curl -L https://raw.githubusercontent.com/Viq111/jumpbox-tools/master/bootstrap.
 ```
 
 # PLEASE NEVER RUN `CURL | SH` BEFORE READING
+Thanks
