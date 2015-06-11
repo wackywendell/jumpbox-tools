@@ -26,7 +26,7 @@ function get_hostname() {
         echo "$N_COLOR""local""$reset_color";
         return
     fi
-    if [ "$envname" -eq "staging" ]
+    if [[ "$envname" == "staging" ]]
     then
         echo "$fg[magenta]""$host""$reset_color";
     else
