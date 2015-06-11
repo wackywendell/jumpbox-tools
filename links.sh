@@ -16,9 +16,5 @@ rmlink zsh/theme ~/.oh-my-zsh/custom/themes/jumpbox.zsh-theme
 # tools
 rmlink bin ~/.bin
 
-# git
-rmlink git/config ~/.gitconfig
-
 # ssh
 rmlink ssh/rc ~/.ssh/rc
-

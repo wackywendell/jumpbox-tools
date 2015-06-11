@@ -1,6 +1,0 @@
-[user]
-    name = Benjamin Fernandes
-    email = benjamin@datadoghq.com
-[push]
-    default = current
-
