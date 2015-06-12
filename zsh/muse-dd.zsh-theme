@@ -16,11 +16,11 @@ GIT_PROMPT_INFO=$FG[012]
 function get_hostname() {
     host=$(hostname)
     envname=`cat /opt/datadog/etc/environment 2>&1 | cut -c 5- 2>&1`
-    if [[ $envname == *"No such file"* ]]
+    if [[ $envname == *"No such file"* ]] || [[ $envname == "dev" ]]
     then
         if [[ $host == "dogbox-"* ]]
         then
-            echo "$N_COLOR""vm""$reset_color";
+            echo "$fg[yellow]""vm""$reset_color";
             return;
         fi
         echo "$N_COLOR""local""$reset_color";
