@@ -18,7 +18,7 @@ function get_hostname() {
     envname=`cat /opt/datadog/etc/environment 2>&1 | cut -c 5- 2>&1`
     if [[ $envname == *"No such file"* ]]
     then
-        if [[ $host == *"ogbox"* ]]
+        if [[ $host == "dogbox-"* ]]
         then
             echo "$N_COLOR""vm""$reset_color";
             return;

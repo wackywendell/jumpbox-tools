@@ -14,3 +14,9 @@ fpath=(~/.jumpbox-tools/zsh/completion $fpath)
 source ~/.jumpbox-tools/zsh/aliases
 source ~/.jumpbox-tools/zsh/helpers
 source $ZSH/oh-my-zsh.sh
+
+# Special RC
+if [[ $host == "dogbox-"* ]]
+then
+    source ~/.jumpbox-tools/zsh/custom_rc/dogbox
+fi

@@ -22,3 +22,7 @@ pyvim() {
 pyver() {
     pip show $1|egrep ^Version
 }
+
+# Aliases for the VM
+alias supe="sudo supervisorctl"
+alias goforit="cd \$GOPATH/src/github.com/DataDog/dd-go"
