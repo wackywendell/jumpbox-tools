@@ -5,13 +5,18 @@ setopt promptsubst
 
 autoload -U add-zsh-hook
 
-N_COLOR=$FG[117]
-PROMPT_FAILURE_COLOR=$FG[124]
-PROMPT_VCS_INFO_COLOR=$FG[242]
-PROMPT_PROMPT=$FG[077]
-GIT_DIRTY_COLOR=$FG[133]
-GIT_CLEAN_COLOR=$FG[118]
-GIT_PROMPT_INFO=$FG[012]
+C_RESET=$reset_color
+C_DEFAULT=$FG[004]
+C_PROMPT=$FG[002]
+C_YELLOW=$FG[003]
+C_MAGENTA=$FG[005]
+BC_DRED=$BG[006]
+
+PROMPT_FAILURE_COLOR=$FG[001]
+PROMPT_VCS_INFO_COLOR=$FG[002]
+GIT_DIRTY_COLOR=$FG[001]
+GIT_CLEAN_COLOR=$FG[002]
+GIT_PROMPT_INFO=$FG[004]
 
 function get_hostname() {
     host=$(hostname)
@@ -20,32 +25,25 @@ function get_hostname() {
     then
         if [[ $host == "dogbox-"* ]]
         then
-            echo "$fg[yellow]""vm""$reset_color";
+            echo "%{$C_YELLOW%}""vm""%{$C_RESET%}";
             return;
         fi
-        echo "$N_COLOR""local""$reset_color";
+        echo "%{$C_DEFAULT%}""local""%{$C_RESET%}";
         return
     fi
     if [[ "$envname" == "staging" ]]
     then
-        echo "$fg[magenta]""$host""$reset_color";
+        echo "%{$C_MAGENTA%}""$host""%{$C_RESET%}";
     else
-        echo "$bg[cyan]""$host""$reset_color";
+        echo "%{$BC_DRED%}""$host""%{$C_RESET%}";
     fi
 }
 
-PROMPT='$reset_color$(get_hostname):%{$N_COLOR%}%~%{$reset_color%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status) %{$reset_color%}%{$PROMPT_PROMPT%}ᐅ%{$reset_color%} '
+PROMPT='%{$C_RESET%}$(get_hostname):%{$C_DEFAULT%}%~%{$C_RESET%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)%{$C_RESET%}%{$PROMPT_PROMPT%}ᐅ%{$C_RESET%} '
 
 #RPS1="${return_code}"
 
 ZSH_THEME_GIT_PROMPT_PREFIX="("
-ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%})"
-ZSH_THEME_GIT_PROMPT_DIRTY=" %{$GIT_DIRTY_COLOR%}✘"
-ZSH_THEME_GIT_PROMPT_CLEAN=" %{$GIT_CLEAN_COLOR%}✔"
-
-ZSH_THEME_GIT_PROMPT_ADDED="%{$FG[082]%}✚%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_MODIFIED="%{$FG[166]%}✹%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_DELETED="%{$FG[160]%}✖%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_RENAMED="%{$FG[220]%}➜%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_UNMERGED="%{$FG[082]%}═%{$reset_color%}"
-ZSH_THEME_GIT_PROMPT_UNTRACKED="%{$FG[190]%}✭%{$reset_color%}"
+ZSH_THEME_GIT_PROMPT_SUFFIX="%{$GIT_PROMPT_INFO%}) "
+ZSH_THEME_GIT_PROMPT_DIRTY="%{$GIT_DIRTY_COLOR%}✘"
+ZSH_THEME_GIT_PROMPT_CLEAN="%{$GIT_CLEAN_COLOR%}✔"
