@@ -39,7 +39,7 @@ function get_hostname() {
     fi
 }
 
-PROMPT='%{$C_RESET%}$(get_hostname):%{$C_DEFAULT%}%~%{$C_RESET%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)%{$C_RESET%}%{$PROMPT_PROMPT%}ᐅ%{$C_RESET%} '
+PROMPT='%{$C_RESET%}$(get_hostname):%{$C_DEFAULT%}%~%{$C_RESET%} %{$GIT_PROMPT_INFO%}$(git_prompt_info)%{$GIT_DIRTY_COLOR%}$(git_prompt_status)%{$C_RESET%}%{$C_PROMPT%}ᐅ%{$C_RESET%} '
 
 #RPS1="${return_code}"
 
