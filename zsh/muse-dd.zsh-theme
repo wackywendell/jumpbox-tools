@@ -18,9 +18,26 @@ GIT_DIRTY_COLOR=$FG[001]
 GIT_CLEAN_COLOR=$FG[002]
 GIT_PROMPT_INFO=$FG[004]
 
+# 256-color support
+if (( $(tput colors) == 256)) then
+    C_DEFAULT=$FG[117]
+    C_PROMPT=$FG[077]
+
+    GIT_PROMPT_INFO=$FG[012]
+    GIT_DIRTY_COLOR=$FG[133]
+    GIT_CLEAN_COLOR=$FG[118]
+fi
+
 function get_hostname() {
     host=$(hostname)
     envname=`cat /opt/datadog/etc/environment 2>&1 | cut -c 5- 2>&1`
+
+    if [ -e /etc/update-motd.d/95-roles ]; then;
+        host_role=$(cat /etc/update-motd.d/95-roles | tail -n+5 | grep -vE '^Instance Type:|^\*\*|^$' | grep -Ev 'common-node|monitoring-client|dog-base|encrypted-storage' | paste -d',' -s -)
+    else;
+        host_role=$(hostname)
+    fi;
+
     if [[ $envname == *"No such file"* ]] || [[ $envname == "dev" ]]
     then
         if [[ $host == "dogbox-"* ]]
@@ -33,9 +50,9 @@ function get_hostname() {
     fi
     if [[ "$envname" == "staging" ]]
     then
-        echo "%{$C_MAGENTA%}""$host""%{$C_RESET%}";
+        echo "%{$C_MAGENTA%}""$host_role""%{$C_RESET%}";
     else
-        echo "%{$BC_DRED%}""$host""%{$C_RESET%}";
+        echo "%{$BC_DRED%}""$host_role""%{$C_RESET%}";
     fi
 }
 
