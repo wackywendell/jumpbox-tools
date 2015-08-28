@@ -33,7 +33,7 @@ function get_hostname() {
     envname=`cat /opt/datadog/etc/environment 2>&1 | cut -c 5- 2>&1`
 
     if [ -e /etc/update-motd.d/95-roles ]; then;
-        host_role=$(cat /etc/update-motd.d/95-roles | tail -n+5 | grep -vE '^Instance Type:|^\*\*|^$' | grep -Ev 'common-node|monitoring-client|dog-base|encrypted-storage' | paste -d',' -s -)
+        host_role=$(cat /etc/update-motd.d/95-roles | tail -n+6 | grep -vE 'Tags:' | grep -vE '^Instance Type:|^\*\*|^$' | grep -Ev 'common-node|monitoring-client|dog-base|encrypted-storage' | paste -d',' -s -)
     else;
         host_role=$(hostname)
     fi;
