@@ -10,3 +10,4 @@ else
     echo "OMZ already installed"
 fi
 rm -f ~/.zshrc.pre-oh-my-zsh
+touch ~/.z
