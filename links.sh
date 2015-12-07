@@ -18,3 +18,4 @@ rmlink bin ~/.bin
 
 # ssh
 rmlink ssh/rc ~/.ssh/rc
+rmlink ssh/config ~/.ssh/config

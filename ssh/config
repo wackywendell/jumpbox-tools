@@ -1,0 +1,2 @@
+Host *
+  UserKnownHostsFile ~/.ssh/known_hosts
