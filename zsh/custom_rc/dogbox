@@ -1,7 +1,7 @@
 export VIRTUAL_ENV_DISABLE_PROMPT=1
 source $HOME/dogweb/python/bin/activate && cd $HOME/workspace/dogweb
 export GOPATH=$HOME/workspace/go
-export GOBIN=
+export GOBIN=$GOPATH/bin_linux
 export NODEPATH=$HOME/workspace/dogweb/node_modules
 export PATH=$PATH:$NODEPATH/.bin/:$GOPATH/bin
 
