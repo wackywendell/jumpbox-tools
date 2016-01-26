@@ -3,7 +3,7 @@ source $HOME/dogweb/python/bin/activate && cd $HOME/workspace/dogweb
 export GOPATH=$HOME/workspace/go
 export GOBIN=$GOPATH/bin_linux
 export NODEPATH=$HOME/workspace/dogweb/node_modules
-export PATH=$PATH:$NODEPATH/.bin/:$GOPATH/bin
+export PATH=$PATH:$NODEPATH/.bin/:$GOBIN
 
 export DD_ENV=dev
 export DOGWEB_DEFAULT_CONFIG_PATH=$HOME/workspace/dogweb/development.ini
