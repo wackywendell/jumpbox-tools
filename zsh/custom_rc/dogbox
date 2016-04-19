@@ -7,3 +7,4 @@ export PATH=$PATH:$NODEPATH/.bin/:$GOBIN
 
 export DD_ENV=dev
 export DOGWEB_DEFAULT_CONFIG_PATH=$HOME/workspace/dogweb/development.ini
+export KAFKA_SHARDING_DEFAULT_CONFIG_PATH=/home/vagrant/workspace/dogweb/etc/conf.d/kafka_sharding.toml
