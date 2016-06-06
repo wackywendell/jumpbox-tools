@@ -16,7 +16,7 @@ source ~/.jumpbox-tools/zsh/helpers
 source $ZSH/oh-my-zsh.sh
 
 # Special RC
-if [[ $(hostname) == "dogbox-"* ]]
+if [[ $(hostname) == "ubuntu-1204" ]]
 then
     source ~/.jumpbox-tools/zsh/custom_rc/dogbox
 fi

@@ -1,10 +1,17 @@
 export VIRTUAL_ENV_DISABLE_PROMPT=1
-source $HOME/dogweb/python/bin/activate && cd $HOME/workspace/dogweb
-export GOPATH=$HOME/workspace/go
+source $HOME/python/bin/activate && cd $HOME/dogweb
+export GOPATH=$HOME/go
 export GOBIN=$GOPATH/bin
-export NODEPATH=$HOME/workspace/dogweb/node_modules
-export PATH=$PATH:$NODEPATH/.bin/:$GOBIN
+export NODEPATH=$HOME/dogweb/node_modules
+export PATH=~/bin:$GOBIN:$PATH:$NODEPATH/.bin/
+
+export _Z_DATA=$HOME/.user-config/.z
 
 export DD_ENV=dev
-export DOGWEB_DEFAULT_CONFIG_PATH=$HOME/workspace/dogweb/development.ini
-export KAFKA_SHARDING_DEFAULT_CONFIG_PATH=/home/vagrant/workspace/dogweb/etc/conf.d/kafka_sharding.toml
+export DOGWEB_DEFAULT_CONFIG_PATH=$HOME/dogweb/development.ini
+export KAFKA_SHARDING_DEFAULT_CONFIG_PATH=/home/vagrant/dogweb/etc/conf.d/kafka_sharding.toml
+
+eval "$(gimme 1.4.2)"
+
+# Aliases
+alias gocheck="go fmt ./... && go tool vet -assign -shadow -bool -atomic -buildtags -composites -methods -printf -structtags -shift -unreachable -unsafeptr -rangeloops . && golint"
