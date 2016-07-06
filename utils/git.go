@@ -31,6 +31,10 @@ func GetHeadRef(root string) string {
 }
 
 func main() {
+	if len(os.Args) >= 2 && os.Args[1] == "rev-parse" {
+		os.Exit(3)
+	}
+
 	if len(os.Args) < 2 || os.Args[1] != "symbolic-ref" {
 		fmt.Println("This is not the real GIT!")
 		return
@@ -47,7 +51,9 @@ func main() {
 
 	if len(head) > 5 && head[0:5] == "ref: " {
 		fmt.Print(head[5:])
+	} else if len(head) > 7 {
+		fmt.Println(head[:7])
 	} else {
-		fmt.Println(head[:5])
+		os.Exit(2)
 	}
 }
