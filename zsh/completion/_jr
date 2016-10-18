@@ -1,4 +1,6 @@
 #compdef jr
-# from @jmoiron bash completion script
 
-
+_jr() {
+    _roles=${(uozf)$(consul-cli catalog service datadog | jq -r '.[] | .ServiceTags[]')}
+    _describe 'values' _roles
+}
