@@ -6,7 +6,7 @@
 - and also everything else
 
 ```
-curl -L https://raw.githubusercontent.com/Viq111/jumpbox-tools/master/bootstrap.sh | sh
+curl -L https://raw.githubusercontent.com/wackywendell/jumpbox-tools/master/bootstrap.sh | sh
 ```
 
 # PLEASE NEVER RUN `CURL | SH` BEFORE READING
