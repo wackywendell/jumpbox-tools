@@ -15,6 +15,8 @@ rm -rf .jumpbox-tools
 
 # Clone ourselves
 git clone https://github.com/wackywendell/jumpbox-tools.git ~/.jumpbox-tools
+git clone https://github.com/wackywendell/dd-scripts.git ~/scripts
+
 cd ~/.jumpbox-tools
 
 ./installs.sh
