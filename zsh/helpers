@@ -63,7 +63,7 @@ howold ()
 }
 
 mq () {
-    sudogq metric_query $@
+    sudogq metric_query "$@"
 }
 
 transfer() {
@@ -80,4 +80,25 @@ transfer() {
   fi;
   cat $tmpfile;
   rm -f $tmpfile;
+}
+
+pysetup() {
+    mkdir ~/.dogpypath
+    pip install -t .dogpypath pudb tqdm
+    chmod -R uga+rx .dogpypath
+
+    mkdir -p ~/.dogconfig
+    chmod uga+rwx .dogconfig
+}
+
+pydog() {
+    sudo -u dog PYTHONPATH="$HOME/.dogpypath" XDG_CONFIG_HOME="$HOME/.dogconfig" python "$@"
+}
+
+pudq() {
+    pydog -m pudb "$(which dogq)" "$@"
+}
+
+pumq() {
+    pudq metric_query "$@"
 }
