@@ -1,0 +1,3 @@
+zsh .jumpbox-tools/installs.sh
+zsh .jumpbox-tools/links.sh
+. ~/.zshrc
