@@ -102,3 +102,13 @@ pudq() {
 pumq() {
     pudq metric_query "$@"
 }
+
+## Marlo
+
+mcapsafe() {
+    HOSTS=$(knife search "role:marlo AND tags:*org2 AND tags:marlo_writes?disabled AND NOT role:marlo-backfill" -i | paste -sd',') cap "$@"
+}
+
+mdsafe() {
+    knife search "role:marlo AND tags:*org2 AND tags:marlo_writes?disabled AND NOT role:marlo-backfill" -i | dmc "$@"
+}
