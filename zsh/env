@@ -6,6 +6,6 @@ fi
 # custom tools
 PATH=$HOME/.bin:$HOME/scripts:$PATH
 
-EDITOR=nano
+EDITOR=vim
 
 KNIFE_HOME=/etc/chef
