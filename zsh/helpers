@@ -38,6 +38,10 @@ chosts_by_role() {
     /usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Node | sort | uniq
 }
 
+croles() {
+    /usr/local/bin/consulkv services:catalog | jq -r '.ServiceName' | sort | uniq
+}
+
 pg() {
     sudo -u postgres psql -p 5433 dogdata$(environmentlc)
 }
@@ -83,6 +87,7 @@ transfer() {
 }
 
 pysetup() {
+    # Set up some useful Python modules for use as the `dog` user
     mkdir ~/.dogpypath
     pip install -t .dogpypath pudb tqdm
     chmod -R uga+rx .dogpypath
@@ -92,14 +97,17 @@ pysetup() {
 }
 
 pydog() {
+    # Run Python as `dog`, but using config / python stuff from your home directory
     sudo -u dog PYTHONPATH="$HOME/.dogpypath" XDG_CONFIG_HOME="$HOME/.dogconfig" python "$@"
 }
 
 pudq() {
+    # Run `pudb dogq`, but as the `dog` user
     pydog -m pudb "$(which dogq)" "$@"
 }
 
 pumq() {
+    # A shortcut for `pudq metric_query`
     pudq metric_query "$@"
 }
 
