@@ -35,11 +35,23 @@ ji(){
 }
 
 chosts_by_role() {
-    /usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Node | sort | uniq
+    /usr/local/bin/consulkv services:catalog | grep "$1" | jq -r .Node | sort -Vu
 }
 
 croles() {
-    /usr/local/bin/consulkv services:catalog | jq -r '.ServiceName' | sort | uniq
+    /usr/local/bin/consulkv services:catalog | jq -r '.ServiceName' | sort -Vu
+}
+
+chosts_by_shard() {
+    /usr/local/bin/consulkv services:catalog | jq -r 'select(.ServiceName == "'"$1"'") | select(.ServiceTags[] | contains("'"$2"'")) | .Node' | sort -u
+}
+
+cshards() {
+    consulkv services:catalog | jq -r 'select(.ServiceName == "'"$1"'") | .ServiceTags | .[]'  | sort -Vu
+}
+
+cshard_names() {
+    cshards "$1" | xargs -n1 printf "%s.$1.service.consul\n"
 }
 
 pg() {
