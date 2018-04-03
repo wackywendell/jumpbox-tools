@@ -123,6 +123,12 @@ pumq() {
     pudq metric_query "$@"
 }
 
+## Deploy
+
+# cap -f /etc/capistrano/Capfile comes from... not sure where;
+# SSHSHELL=yes uses a much faster experimental ssh kit
+alias cap='SSHSHELL=yes cap -f /etc/capistrano/Capfile'
+
 ## Marlo
 
 mcapsafe() {
