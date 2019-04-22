@@ -82,6 +82,10 @@ mq () {
     sudogq metric_query "$@"
 }
 
+dwunsync() {
+    noglob rm -r ~/.dogpypath/{ops,dd,datalayer,delancie,integration,prozess,pyx,cy*.so}
+}
+
 transfer() {
   if [ $# -eq 0 ]; then
     echo "No arguments specified. Usage:\necho transfer /tmp/test.md\ncat /tmp/test.md | transfer test.md";
@@ -113,6 +117,14 @@ pydog() {
     sudo -u dog PYTHONPATH="$HOME/.dogpypath" XDG_CONFIG_HOME="$HOME/.dogconfig" python "$@"
 }
 
+pydq() {
+    pydog $(which dogq) "$@"
+}
+
+pymq() {
+    pydog $(which dogq) metric_query "$@"
+}
+
 pudq() {
     # Run `pudb dogq`, but as the `dog` user
     pydog -m pudb "$(which dogq)" "$@"
@@ -128,6 +140,8 @@ pumq() {
 # cap -f /etc/capistrano/Capfile comes from... not sure where;
 # SSHSHELL=yes uses a much faster experimental ssh kit
 alias cap='SSHSHELL=yes cap -f /etc/capistrano/Capfile'
+
+alias pycompile='sudo python -m compileall -q /opt/dogweb'
 
 ## Marlo
 
