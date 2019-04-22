@@ -1,3 +1,5 @@
+#!/bin/zsh
+
 environmentlc(){
     cat /opt/datadog/etc/environment | cut -c 5-
 }
@@ -119,6 +121,10 @@ pydog() {
 
 pydq() {
     pydog $(which dogq) "$@"
+}
+
+pydg() {
+    pydog $(which dogg) "$@"
 }
 
 pymq() {
