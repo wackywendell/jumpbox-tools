@@ -4,7 +4,7 @@ if [ -f /etc/profile.d/consul.sh ]; then
 fi
 
 # custom tools
-PATH=$HOME/.bin:$HOME/scripts:$PATH
+PATH=$HOME/.bin:$HOME/scripts:$HOME/expscripts:$PATH
 
 EDITOR=vim
 

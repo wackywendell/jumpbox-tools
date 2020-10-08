@@ -17,3 +17,10 @@ pymod() {
 pyver() {
     pip show $1|egrep ^Version
 }
+
+rcompare() {
+    set -x
+    sudog ./rocky query --log-line "$1" --debug --no-handles > nohandles
+    sudog ./rocky query --log-line "$1" --debug --use-handles > usehandles
+    diff nohandles usehandles
+}

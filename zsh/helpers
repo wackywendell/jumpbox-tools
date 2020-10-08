@@ -85,7 +85,7 @@ mq () {
 }
 
 dwunsync() {
-    noglob rm -r ~/.dogpypath/{ops,dd,datalayer,delancie,integration,prozess,pyx,cy*.so}
+    (set -o nullglob; rm -r ~/.dogpypath/{ops,dd,dogweb,kima,datalayer,delancie,integration,prozess,pyx,cy*.so})
 }
 
 transfer() {
@@ -133,6 +133,8 @@ pymq() {
 
 pudq() {
     # Run `pudb dogq`, but as the `dog` user
+    mkdir -p ~/.dogconfig
+    chmod uga+rwx .dogconfig
     pydog -m pudb "$(which dogq)" "$@"
 }
 
